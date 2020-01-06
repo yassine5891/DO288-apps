@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Container Catalog - Red Hat Customer Portal</title>
+  <style>
+    li.L0,
+    li.L1,
+    li.L2,
+    li.L3,
+    li.L5,
+    li.L6,
+    li.L7,
+    li.L8 {
+      list-style-type: decimal !important;
+    }
+  </style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--[if IEMobile]><meta http-equiv="cleartype" content="on"><![endif]-->
+
+  <!-- Locale: en -->
+
+  <!-- metaInclude -->
+  <meta name="avalon-host-info" content="kcs01.web.qa.ext.phx1.redhat.com" />
+  <meta name="avalon-version" content="717e418" />
+  <meta name="cp-chrome-build-date" content="2019-06-17T15:43:16.485Z" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+  <link rel="manifest" href="https://access.redhat.com/webassets/avalon/j/manifest.json">
+  <!-- Open Search - Tap to search -->
+  <link rel="search" type="application/opensearchdescription+xml" title="Red Hat Customer Portal"
+    href="https://access.redhat.com/webassets/avalon/j/opensearch.xml" />
+  <!-- title -->
+  <title>Red Hat Customer Portal</title>
+  <!-- /title -->
+  <script type="text/javascript">
+    window.portal = {
+      analytics: {},
+      host: "https://access.redhat.com",
+      idp_url: "https://sso.redhat.com",
+      lang: "en",
+      version: "717e418",
+      builddate: "2019-06-17T15:43:16.485Z",
+      nrid: "14616773",
+      nrlk: "d812f09588"
+    };
+  </script>
+  <script type="text/javascript">
+    if (!/\/logout.*/.test(location.pathname) && portal.host === location.origin && document.cookie.indexOf('rh_sso_session') >= 0 && !(document.cookie.indexOf('rh_jwt') >= 0)) window.location = '/login?redirectTo=' + encodeURIComponent(window.location.href);
+  </script>
+  <!-- cssInclude -->
+
+  <link rel="shortcut icon" href="https://access.redhat.com/webassets/avalon/g/favicon.ico" />
+
+  <link media="all" rel="stylesheet" type="text/css"
+    href="https://access.redhat.com/chrome_themes/nimbus/css/bootstrap.css?v=717e418" />
+  <link media="all" rel="stylesheet" type="text/css"
+    href="https://access.redhat.com/chrome_themes/nimbus/css/main.css?v=717e418" />
+  <link media="all" rel="stylesheet" type="text/css"
+    href="https://access.redhat.com/chrome_themes/nimbus/css/components.css?v=717e418" />
+  <link media="all" rel="stylesheet" type="text/css"
+    href="https://access.redhat.com/chrome_themes/nimbus/css/pages.css?v=717e418" />
+
+  <link href="https://access.redhat.com/webassets/avalon/s/chosen.css?v=717e418" rel="stylesheet" type="text/css" />
+
+  <!--[if lte IE 9]>
+<link media="all" rel="stylesheet" type="text/css" href="https://access.redhat.com/chrome_themes/nimbus/css/ie.css" />
+<![endif]-->
+
+
+  <noscript>
+    <style type="text/css" media="screen">
+      .primary-nav {
+        display: block;
+      }
+    </style>
+  </noscript>
+
+  <!-- /cssInclude -->
+  <script type="text/javascript" src="https://access.redhat.com/webassets/avalon/j/lib/require.js?v=717e418"
+    data-main="/webassets/avalon/j/"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="https://access.redhat.com/chrome_themes/nimbus/js/ie8.js"></script>
+<![endif]-->
+
+  <script>
+    // polfill for closest
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+    if (window.Element && !Element.prototype.closest) {
+      Element.prototype.closest = function (s) {
+        var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+          i,
+          el = this;
+        do {
+          i = matches.length;
+          while (--i >= 0 && matches.item(i) !== el) { };
+        } while ((i < 0) && (el = el.parentElement));
+
+        return el;
+      };
+    }
+    // findIndex polyfill
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+    if (!Array.prototype.findIndex) {
+      Object.defineProperty(Array.prototype, 'findIndex', {
+        value: function (predicate) {
+          'use strict';
+          if (this == null) {
+            throw new TypeError('Array.prototype.findIndex called on null or undefined');
+          }
+          if (typeof predicate !== 'function') {
+            throw new TypeError('predicate must be a function');
+          }
+          var list = Object(this);
+          var length = list.length >>> 0;
+          var thisArg = arguments[1];
+          var value;
+
+          for (var i = 0; i < length; i++) {
+            value = list[i];
+            if (predicate.call(thisArg, value, i, list)) {
+              return i;
+            }
+          }
+          return -1;
+        },
+        enumerable: false,
+        configurable: false,
+        writable: false
+      });
+    }
+
+    // find polyfill
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    if (!Array.prototype.find) {
+      Object.defineProperty(Array.prototype, "find", {
+        value: function (predicate) {
+          'use strict';
+          if (this == null) {
+            throw new TypeError('Array.prototype.find called on null or undefined');
+          }
+          if (typeof predicate !== 'function') {
+            throw new TypeError('predicate must be a function');
+          }
+          var list = Object(this);
+          var length = list.length >>> 0;
+          var thisArg = arguments[1];
+          var value;
+
+          for (var i = 0; i < length; i++) {
+            value = list[i];
+            if (predicate.call(thisArg, value, i, list)) {
+              return value;
+            }
+          }
+          return undefined;
+        }
+      });
+    }
+
+    // assign polyfill
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+    if (typeof Object.assign != 'function') {
+      Object.assign = function (target, varArgs) { // .length of function is 2
+        'use strict';
+        if (target == null) { // TypeError if undefined or null
+          throw new TypeError('Cannot convert undefined or null to object');
+        }
+
+        var to = Object(target);
+
+        for (var index = 1; index < arguments.length; index++) {
+          var nextSource = arguments[index];
+
+          if (nextSource != null) { // Skip over if undefined or null
+            for (var nextKey in nextSource) {
+              // Avoid bugs when hasOwnProperty is shadowed
+              if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
+          }
+        }
+        return to;
+      };
+    }
+
+    // includes polyfill
+    // https://tc39.github.io/ecma262/#sec-array.prototype.includes
+    if (!Array.prototype.includes) {
+      Object.defineProperty(Array.prototype, 'includes', {
+        value: function (searchElement, fromIndex) {
+
+          // 1. Let O be ? ToObject(this value).
+          if (this == null) {
+            throw new TypeError('"this" is null or not defined');
+          }
+
+          var o = Object(this);
+
+          // 2. Let len be ? ToLength(? Get(O, "length")).
+          var len = o.length >>> 0;
+
+          // 3. If len is 0, return false.
+          if (len === 0) {
+            return false;
+          }
+
+          // 4. Let n be ? ToInteger(fromIndex).
+          //    (If fromIndex is undefined, this step produces the value 0.)
+          var n = fromIndex | 0;
+
+          // 5. If n ≥ 0, then
+          //  a. Let k be n.
+          // 6. Else n < 0,
+          //  a. Let k be len + n.
+          //  b. If k < 0, let k be 0.
+          var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+
+          // 7. Repeat, while k < len
+          while (k < len) {
+            // a. Let elementK be the result of ? Get(O, ! ToString(k)).
+            // b. If SameValueZero(searchElement, elementK) is true, return true.
+            // c. Increase k by 1.
+            // NOTE: === provides the correct "SameValueZero" comparison needed here.
+            if (o[k] === searchElement) {
+              return true;
+            }
+            k++;
+          }
+
+          // 8. Return false
+          return false;
+        }
+      });
+    }
+    if (!String.prototype.includes) {
+      String.prototype.includes = function (search, start) {
+        'use strict';
+        if (typeof start !== 'number') {
+          start = 0;
+        }
+
+        if (start + search.length > this.length) {
+          return false;
+        } else {
+          return this.indexOf(search, start) !== -1;
+        }
+      };
+    }
+    chrometwo_ready(function () {
+      window.portal.siteSection = window.portal.siteSection || {};
+    });
+
+    // setup Polymer options
+    window.Polymer = { lazyRegister: true };
+
+    // load webcomponents polyfills
+    (function () {
+      if ('registerElement' in document
+        && 'import' in document.createElement('link')
+        && 'content' in document.createElement('template')) {
+        // browser has web components
+      } else {
+        // polyfill web components
+        var e = document.createElement('script');
+        e.src = '/sites/default/files/spas/container-catalog-spa/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        document.head.appendChild(e);
+      }
+
+      if (!window.hasOwnProperty('Intl')) {
+        var script = document.createElement('script');
+        script.src = '/sites/default/files/spas/container-catalog-spa/src/intl-polyfill.js';
+        document.head.appendChild(script);
+      }
+    })();
+  </script>
+
+  <script type="text/javascript" charset="utf-8"
+    src="/sites/default/files/spas/container-catalog-spa/require.config.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="import" href="/sites/default/files/spas/container-catalog-spa/src/cc-app.html?bust=00dce51">
+</head>
+
+<body>
+  <style> .ecosystem-header-wrap{background-color:#1a1a1a}.ecosystem-header-wrap .ecosystem-header-container{padding-left:48px;padding-right:48px}@media screen and (max-width:1200px){.ecosystem-header-wrap .ecosystem-header-container{padding-left:0;padding-right:0}}.ecosystem-header-wrap .ecosystem-subnav-container{padding-left:0;padding-right:0}.ecosystem-header-wrap .subnav section h3{text-decoration:underline}.ecosystem-header-wrap header{z-index:1001}.ecosystem-header-wrap .skip-link{position:absolute;left:-9000em;top:0;z-index:2000;display:block;padding:.5rem 1rem;background:#e2e2e2;color:#252525}.ecosystem-header-wrap .skip-link:hover{background:#004080;color:#fff}.ecosystem-header-wrap .skip-link:focus{left:0}.ecosystem-header-wrap header{position:relative;color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}.ecosystem-header-wrap .nav-band{background-color:#1a1a1a;width:100%}@media (max-width:1200px){.ecosystem-header-wrap .nav-band{padding-left:16px}}.ecosystem-header-wrap .has-js-loaded .nav-toggle{display:block}@media (max-width:992px){.ecosystem-header-wrap .has-js-loaded .nav-wrapper.noshow{display:none}}@media (min-width:768px){.ecosystem-header-wrap .has-js-loaded .nav-wrapper.hidden{display:block!important;visibility:visible!important}}.ecosystem-header-wrap .nav-toggle{display:none;-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;margin-left:auto;padding:.2rem 1rem .3rem;height:3.25em;border:0;border-top:.25rem solid transparent;background:0 0;color:#fff;font-weight:500;line-height:1rem;-webkit-transition:border-top-color 250ms ease-out;-o-transition:border-top-color 250ms ease-out;transition:border-top-color 250ms ease-out}.ecosystem-header-wrap .nav-toggle .web-icon-plus{display:none}.ecosystem-header-wrap .nav-toggle[aria-expanded=true]{background:#fff;border-top-color:#e00;color:#252525}.ecosystem-header-wrap .nav-toggle[aria-expanded=true] .web-icon-plus{display:block}.ecosystem-header-wrap .nav-toggle[aria-expanded=true] .web-icon-mobile-menu{display:none}.ecosystem-header-wrap .nav-toggle span{display:block;margin:.25em 0 0;font-size:.875em}.ecosystem-header-wrap .nav-toggle:focus,.ecosystem-header-wrap .nav-toggle:hover{border-top-color:#06c}.ecosystem-header-wrap .nav-toggle:active{border-top-color:#e00}@media screen and (min-width:768px){.preventscroll{overflow:hidden}.ecosystem-header-wrap .nav-toggle{display:none}}.ecosystem-header-wrap .nav-main{position:absolute;top:3.25rem;left:0;right:0;background:0 0}@media screen and (max-width:992px){.ecosystem-header-wrap .nav-main{margin-left:-15px!important}}.ecosystem-header-wrap .nav-main>ul{margin:0;padding:0;list-style:none;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.ecosystem-header-wrap .nav-main>ul>li{margin:0}.ecosystem-header-wrap .nav-main>ul>li>a{display:block;padding:1rem;color:#06c;font-size:1.5rem;line-height:1em;text-decoration:none}.ecosystem-header-wrap .nav-main>ul>li>a:focus,.ecosystem-header-wrap .nav-main>ul>li>a:hover{color:#004080}.ecosystem-header-wrap .nav-main>ul>li.has-subnav>a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.ecosystem-header-wrap .nav-main>ul>li.has-subnav>a::before{content:"";display:block;margin-right:1rem;width:.5rem;height:.5rem;border-right:.094rem solid #06c;border-bottom:.094rem solid #06c;-webkit-transform:rotate(-45deg) translate(0,0);-ms-transform:rotate(-45deg) translate(0,0);transform:rotate(-45deg) translate(0,0)}.ecosystem-header-wrap .nav-main>ul>li.has-subnav>a[aria-expanded=true]::before{-webkit-transform:rotate(45deg) translate(.15rem,-.25rem);-ms-transform:rotate(45deg) translate(.15rem,-.25rem);transform:rotate(45deg) translate(.15rem,-.25rem)}.ecosystem-header-wrap .subnav{padding:1rem;color:#252525}.ecosystem-header-wrap .subnav--link-list{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}@media screen and (min-width:768px){.ecosystem-header-wrap .subnav--link-list section{padding:0 2rem}.ecosystem-header-wrap .subnav--link-list section:first-child{padding:0 2rem 0 0}}@media screen and (max-width:768px){.ecosystem-header-wrap .nav-main{background-color:#fff;z-index:9}.ecosystem-header-wrap .subnav--link-list{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.ecosystem-header-wrap .subnav--link-list section{padding:0;margin:15px 0}.ecosystem-header-wrap .subnav--link-list section:first-child{margin-top:0}}.ecosystem-header-wrap .subnav--link-list section h3 a{color:#252525}.ecosystem-header-wrap .subnav h2{margin:0;font-size:1rem}.ecosystem-header-wrap .subnav h2 a{color:#252525;text-decoration:underline}.ecosystem-header-wrap .subnav h2 a:focus,.ecosystem-header-wrap .subnav h2 a:hover{color:#004080}.ecosystem-header-wrap .subnav ul{margin:0;padding:0;list-style:none}.ecosystem-header-wrap .subnav ul li{margin-top:1rem}.ecosystem-header-wrap .subnav a{color:#06c;text-decoration:none}.ecosystem-header-wrap .subnav a:focus,.ecosystem-header-wrap .subnav a:hover{color:#004080;text-decoration:underline}.ecosystem-header-wrap .subnav.noshow,.ecosystem-header-wrap .subnav[hidden]{display:none!important}@media screen and (min-width:992px){.ecosystem-header-wrap header{-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline}.ecosystem-header-wrap header.has-js-loaded .nav-toggle{display:none}.ecosystem-header-wrap header.has-js-loaded .nav-wrapper{width:100%}.ecosystem-header-wrap header.has-js-loaded .nav-wrapper .noshow{display:block}.ecosystem-header-wrap header.has-js-loaded .login{margin-left:auto}.ecosystem-header-wrap .nav-main{position:static;left:auto;right:auto;top:auto;background:0 0}.ecosystem-header-wrap .nav-main>ul{margin-left:64px;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}}@media screen and (min-width:992px) and (max-width:1200px){.ecosystem-header-wrap .nav-main>ul{margin-left:16px}}@media screen and (min-width:992px){.ecosystem-header-wrap .nav-main>ul>li>a{position:relative;color:#fff;padding:0 1rem .25rem;border-top:.25rem solid transparent;font-size:1rem;font-weight:500;line-height:3.25rem;-webkit-transition:border-top-color 250ms ease-out;-o-transition:border-top-color 250ms ease-out;transition:border-top-color 250ms ease-out}.ecosystem-header-wrap .nav-main>ul>li>a:focus,.ecosystem-header-wrap .nav-main>ul>li>a:hover{color:#fff;border-top-color:#06c}.ecosystem-header-wrap .nav-main>ul>li>a:active{border-top-color:#e00}.ecosystem-header-wrap .nav-main>ul>li>a[aria-expanded=true]{background:#fff;border-top-color:#e00;color:#252525;z-index:1002}.ecosystem-header-wrap .nav-main>ul>li.has-subnav>a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.ecosystem-header-wrap .nav-main>ul>li.has-subnav>a::before{display:none}.ecosystem-header-wrap .subnav{position:fixed;left:0;right:0;padding:2rem 48px;background:#fff;-webkit-box-shadow:0 2px 8px rgba(0,0,0,.2);box-shadow:0 2px 8px rgba(0,0,0,.2);z-index:1001}.ecosystem-header-wrap .has-js-loaded .nav-main>ul>li.has-subnav>a::after{content:"";display:block;margin-left:1rem;width:.5rem;height:.5rem;border-right:.094rem solid #fff;border-bottom:.094rem solid #fff;-webkit-transform:rotate(45deg) translate(-.3rem,.15rem);-ms-transform:rotate(45deg) translate(-.3rem,.15rem);transform:rotate(45deg) translate(-.3rem,.15rem)}.ecosystem-header-wrap .has-js-loaded .nav-main>ul>li.has-subnav>a[aria-expanded=true]::after{border-right-color:#252525;border-bottom-color:#252525;-webkit-transform:rotate(-135deg) translate(.15rem,-.3rem);-ms-transform:rotate(-135deg) translate(.15rem,-.3rem);transform:rotate(-135deg) translate(.15rem,-.3rem)}}@media screen and (max-width:768px){.ecosystem-header-wrap header .nav-main ul>li>a{font-size:1rem;color:#000}}.ecosystem-header-wrap .logo{margin:0}.ecosystem-header-wrap .logo a{display:block;padding:0 1rem;font-size:1rem;line-height:3.25rem;color:#fff;text-decoration:none}.ecosystem-header-wrap .site-title:before{position:absolute;left:20px;top:6px;content:"";height:30px;width:1px;background:rgba(133,119,119,.3)}.ecosystem-header-wrap .header-title{white-space:nowrap;margin-left:1rem;-ms-flex-item-align:center;align-self:center}.ecosystem-header-wrap .a11y-nav .logo{margin-left:1rem;height:auto;-ms-flex-item-align:center;align-self:center}.ecosystem-header-wrap .a11y-nav .rh-logo{width:269px}@media screen and (max-width:768px){.ecosystem-header-wrap .a11y-nav .rh-logo{width:192px}}.ecosystem-header-wrap .modal-backdrop{color:#252525;opacity:.6;z-index:1000}.logo{margin-left:0!important}@media screen and (min-width:992px){.site-nav-heading .flex-align-right{margin-left:auto!important}}@media screen and (min-width:768px){.ecosystem-header-wrap .noshow{display:block!important}.site-nav-heading{padding-left:45px}}.site-nav-heading a{line-height:64px!important}@media (max-width:992px) and (min-width:768px){.site-nav-heading{background-color:#fff}.site-nav-heading a{color:#000!important}.nav-wrapper.hidden .site-nav-heading,.nav-wrapper.noshow .site-nav-heading{display:none!important}} </style>
+<div class="ecosystem-header-wrap">
+  <div class="ecosystem-header-container">
+    <div class="nav-band">
+      <header class="a11y-nav">
+        <!-- Skip links -->
+        <a href="#main-content" class="skip-link">Skip to content</a>
+        <a href="https://catalog.redhat.com" class="logo">
+          <svg class="rh-logo" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 1232.2 145"
+            style="enable-background:new 0 0 1232.2 145;" xml:space="preserve">
+            <title>Red Hat</title>
+            <g>
+              <g>
+                <path class="st0" style="fill:#EE0000;" d="M127.9,83.6c12.6,0,30.8-2.6,30.8-17.6c0-1.2-0.1-2.3-0.3-3.4L150.9,30c-1.7-7.2-3.3-10.4-15.8-16.7
+                          C125.3,8.2,104,0,97.7,0c-5.9,0-7.6,7.6-14.6,7.6c-6.7,0-11.7-5.6-18-5.6c-6,0-10,4.1-13,12.6c0,0-8.5,23.9-9.6,27.3
+                          c-0.2,0.6-0.2,1.3-0.2,2C42.3,53.1,78.9,83.5,127.9,83.6 M160.6,72.1c1.7,8.2,1.7,9.1,1.7,10.2c0,14.1-15.8,21.9-36.7,21.9
+                          c-47.1,0-88.3-27.6-88.3-45.8c0-2.5,0.5-5.1,1.5-7.4C21.9,51.9,0,54.9,0,74.2C0,105.9,75.1,145,134.6,145
+                          c45.6,0,57.1-20.6,57.1-36.9C191.7,95.3,180.6,80.7,160.6,72.1" />
+                <path
+                  d="M160.6,72.1c1.7,8.2,1.7,9.1,1.7,10.2c0,14.1-15.8,21.9-36.7,21.9c-47.1,0-88.3-27.6-88.3-45.8c0-2.5,0.5-5.1,1.5-7.4
+                          l3.7-9.1c-0.2,0.6-0.2,1.3-0.2,1.9c0,9.3,36.6,39.7,85.5,39.7c12.6,0,30.8-2.6,30.8-17.6c0-1.2-0.1-2.3-0.3-3.4L160.6,72.1z" />
+                <path style="fill: white;" d="M583.3,92.9c0,12,7.2,17.8,20.3,17.8c4-0.1,8.1-0.7,12-1.7V95.2c-2.5,0.8-5.1,1.2-7.7,1.2c-5.4,0-7.4-1.7-7.4-6.8V68.3
+                          h15.7V54h-15.7V35.8l-17.1,3.7V54H572v14.3h11.3L583.3,92.9L583.3,92.9z M529.9,93.3c0-3.7,3.7-5.5,9.3-5.5
+                          c3.4,0,6.8,0.4,10.2,1.3v7.2c-3.3,1.8-7,2.7-10.7,2.6C533.2,98.9,529.9,96.8,529.9,93.3 M535.1,110.9c6,0,10.9-1.3,15.5-4.3v3.4
+                          h16.9V74.1c0-13.7-9.2-21.1-24.6-21.1c-8.6,0-17.1,2-26.2,6.1l6.1,12.6c6.6-2.8,12.1-4.5,16.9-4.5c7,0,10.7,2.7,10.7,8.4v2.7
+                          c-4.1-1.1-8.4-1.6-12.7-1.6c-14.4,0-23.1,6-23.1,16.8C514.8,103.5,522.6,111,535.1,110.9 M442,110h18.2V81h30.5v29H509V35.9h-18.2
+                          v28.5h-30.5V35.9h-18.2L442,110z M372.7,81.9c0-8.1,6.4-14.2,14.7-14.2c4.4-0.1,8.6,1.5,11.8,4.3v19.6c-3.2,3-7.5,4.6-11.8,4.5
+                          C379.2,96.2,372.7,90,372.7,81.9 M399.5,110h16.9V32.2l-17.1,3.7V57c-4.4-2.5-9.3-3.7-14.3-3.7c-16.3,0-29.1,12.6-29.1,28.7
+                          c-0.2,15.7,12.4,28.6,28.1,28.8c0.2,0,0.3,0,0.5,0c5.4,0,10.7-1.7,15-4.9V110z M321.7,67c5.4,0,9.9,3.5,11.8,8.9h-23.4
+                          C311.8,70.3,316,67,321.7,67 M292.8,82.1c0,16.3,13.3,29,30.5,29c9.4,0,16.3-2.5,23.4-8.5l-11.3-10.1c-2.6,2.8-6.6,4.2-11.2,4.2
+                          c-6,0.2-11.5-3.4-13.8-8.9h39.9v-4.3c0-17.8-12-30.6-28.3-30.6c-15.9-0.2-29,12.4-29.2,28.3C292.9,81.6,292.9,81.8,292.8,82.1
+                          M263.3,51.4c6,0,9.4,3.8,9.4,8.4s-3.4,8.4-9.4,8.4h-18V51.4H263.3z M227.1,110h18.2V83h13.9l14,27h20.4l-16.3-29.7
+                          c8.5-3.4,14-11.7,14-20.9c0-13.3-10.5-23.6-26.2-23.6h-37.9V110H227.1z" />
+              </g>
+              <rect x="698.1" y="2.7" width="1" height="139.6" style="fill: white;" />
+              <g style="fill: white;">
+                <path d="M781.7,9.2h28.8v5.9h-21.9v11.2h15.3v5.8h-15.3v11.6h22.2v5.9h-29.1V9.2z" />
+                <path d="M859.1,38.6l4.5,4.4c-3.7,4.4-9.6,7.1-15.5,7.1c-11.8,0-20.8-9.1-20.8-20.7c0-11.7,9.1-20.8,20.8-20.8
+                          c6.1,0,12,2.6,15.7,7.1l-4.7,4.6c-2.8-3.6-6.8-5.6-11-5.6c-7.8,0-13.7,6.3-13.7,14.6c0,8.2,6,14.5,14,14.5
+                          C852.5,43.9,856.3,42,859.1,38.6z" />
+                <path d="M900.7,50.1c-11.4,0-20.4-9.1-20.4-20.8s9-20.8,20.4-20.8s20.4,9.1,20.4,20.8S912.1,50.1,900.7,50.1z M900.7,14.8
+                          c-7.5,0-13.3,6.3-13.3,14.6S893.2,44,900.7,44S914,37.7,914,29.4S908.2,14.8,900.7,14.8z" />
+                <path
+                  d="M942,38.3c4.4,4,8.6,6,13.3,6c5.7,0,9-2.8,9-6.4c0-3.2-1.9-4.8-7.3-5.8l-7.4-1.3c-6.9-1.3-10.4-4.7-10.4-10.5
+                          c0-7.7,6.3-11.9,15-11.9c5.8,0,11.9,1.8,16.1,5.4l-3.8,5.1c-4-3.3-8.2-4.7-12.7-4.7c-4.4,0-8,1.7-8,5.6c0,3.1,1.9,4.5,6.2,5.2
+                          l7.1,1.3c8.3,1.4,11.9,5.1,11.9,11c0,7.1-6,12.6-16.2,12.6c-6.1,0-12.1-2.4-16.9-6.8L942,38.3z" />
+                <path d="M1002.4,33.6L986.5,9.2h8l11.6,18.4l11.7-18.4h7.6l-16.1,24.5v15.8h-6.9V33.6z" />
+                <path
+                  d="M1043.1,38.3c4.4,4,8.6,6,13.3,6c5.7,0,9-2.8,9-6.4c0-3.2-1.9-4.8-7.3-5.8l-7.4-1.3c-6.9-1.3-10.4-4.7-10.4-10.5
+                          c0-7.7,6.3-11.9,15-11.9c5.8,0,11.9,1.8,16.1,5.4l-3.8,5.1c-4-3.3-8.2-4.7-12.7-4.7c-4.4,0-8,1.7-8,5.6c0,3.1,1.9,4.5,6.2,5.2
+                          l7.1,1.3c8.3,1.4,11.9,5.1,11.9,11c0,7.1-6,12.6-16.2,12.6c-6.1,0-12.1-2.4-16.9-6.8L1043.1,38.3z" />
+                <path d="M1089.2,9.2h33.8v6h-13.4v34.3h-6.9V15.2h-13.5V9.2z" />
+                <path d="M1141.7,9.2h28.8v5.9h-21.9v11.2h15.3v5.8h-15.3v11.6h22.1v5.9h-29.1L1141.7,9.2L1141.7,9.2z" />
+                <path d="M1197.1,17.9v31.6h-6.4V9.2h9l11.8,24.4l11.7-24.4h9v40.3h-6.5V18.1l-14.3,28.5L1197.1,17.9z" />
+                <path d="M811.6,124.9l4.5,4.4c-3.7,4.4-9.6,7.1-15.5,7.1c-11.8,0-20.8-9.1-20.8-20.7c0-11.7,9.1-20.8,20.8-20.8
+                          c6.1,0,12,2.6,15.7,7.1l-4.7,4.6c-2.8-3.6-6.8-5.6-11-5.6c-7.8,0-13.7,6.3-13.7,14.6c0,8.2,6,14.5,14,14.5
+                          C805,130.1,808.8,128.3,811.6,124.9z" />
+                <path
+                  d="M845.6,95.5h8l15.6,40.3h-7.5l-4.1-11.3h-16.4l-4.2,11.3h-7.2L845.6,95.5z M855.5,118.8l-6-16.6l-6.2,16.6H855.5z" />
+                <path d="M879.3,95.5h33.8v6h-13.4v34.3h-6.9v-34.3h-13.5L879.3,95.5L879.3,95.5z" />
+                <path
+                  d="M938.9,95.5h8l15.6,40.3H955l-4.1-11.3h-16.4l-4.2,11.3h-7.2L938.9,95.5z M948.8,118.8l-6-16.6l-6.2,16.6H948.8z" />
+                <path d="M980.9,95.5h6.9v34.3h21.5v6h-28.4V95.5z" />
+                <path d="M1043.4,136.4c-11.4,0-20.4-9.1-20.4-20.8s9-20.8,20.4-20.8s20.4,9.1,20.4,20.8S1054.7,136.4,1043.4,136.4z M1043.4,101
+                          c-7.5,0-13.3,6.3-13.3,14.6s5.8,14.6,13.3,14.6s13.3-6.3,13.3-14.6S1050.9,101,1043.4,101z" />
+                <path d="M1098.4,136.4c-11.7,0-20.8-9.1-20.8-20.8s9-20.8,20.7-20.8c6.4,0,12.4,2.5,16.3,7.1l-4.8,4.4c-2.8-3.5-7-5.4-11.4-5.4
+                          c-7.8,0-13.6,6.4-13.6,14.6c0,8.3,5.9,14.7,13.7,14.7c6.4,0,11.4-4.5,12.3-10.6h-12v-5.9h19.2v2.2
+                          C1117.9,127.6,1109.6,136.4,1098.4,136.4z" />
+              </g>
+            </g>
+          </svg>
+        </a>
+        <!-- Global menu toggle & global menu -->
+        <button id="nav-main-toggle" class="nav-toggle" aria-label="Toggle site navigation">
+
+
+          <span aria-hidden="true" class="web-icon-mobile-menu"></span>
+
+          <span aria-hidden="true" class="web-icon-plus" style="transform: rotate(45deg);"></span>
+
+          <span>Menu</span>
+        </button>
+
+        <div class="nav-wrapper">
+          <!-- Search toggle & search area -->
+
+          <!-- Main Nav -->
+          <nav id="nav-main" class="nav-main" aria-label="Site">
+            <h2 id="site-nav-heading" class="sr-only">Site navigation</h2>
+            <ul class="site-nav-heading" aria-labelledby="site-nav-heading">
+              <li><a href="https://catalog.redhat.com/hardware" aria-expanded="false" role="button">Hardware</a></li>
+              <li><a href="https://catalog.redhat.com/software" aria-expanded="false" role="button">Software</a></li>
+              <li><a href="https://catalog.redhat.com/cloud" aria-expanded="false" role="button">Cloud &amp; Service Providers</a></li>
+              <li class="flex-align-right"><a href="https://rhec.gitbook.io/help-home/" aria-expanded="false" role="button">Help</a></li>
+              <li><a href="https://access.redhat.com/terms-based-registry/" aria-expanded="false" role="button">Service Accounts</a></li>
+            </ul>
+          </nav>
+          <!-- /Main Nav -->
+          <!-- Account log in toggle & menu -->
+          <!-- Language toggle & menu -->
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="modal-backdrop hidden" id="backdrop"></div>
+</div>
+<script> (function () {
+    'use strict';
+    (function () {
+        //@ts-ignore
+        window.AppHeader = {
+            nav: function () {
+                var _this = this;
+                // Fix bug where tabbing into inner links + ESC doesn't change parent style
+                var navToggleClickEventHandler = function () {
+                    toggleMainNav(_this.navToggle);
+                };
+                var navToggleKeydownHandler = function (event, backdrop) {
+                    var toggleButton = event.target;
+                    switch (event.key) {
+                        // Actual button, so Spacebar is captured already...
+                        case "Esc":
+                            closeMainNav(toggleButton);
+                        case "Escape":
+                            closeMainNav(toggleButton);
+                            break;
+                        default:
+                            return;
+                    }
+                };
+                var subNavClickEventHandler = function (event) {
+                    // console.log(event.target);
+                    var subNav = event.target.parentNode.querySelector(".subnav");
+                    if (subNav !== null) {
+                        event.preventDefault();
+                        // console.log("This inside the other logic is " + this)
+                        toggleSubNav(event.target, subNav);
+                    }
+                };
+                var subNavKeydownHandler = function (event) {
+                    var subNav;
+                    var currentNavItem;
+                    if (event.target.classList.contains(".subNav")) {
+                        subNav = _this;
+                        currentNavItem = _this.querySelector("a");
+                    }
+                    else {
+                        subNav = event.target.parentNode.querySelector(".subnav");
+                        currentNavItem = event.target;
+                    }
+                    switch (event.key) {
+                        case "Spacebar":
+                        case " ":
+                            // Open subnav and jump to first item
+                            event.preventDefault();
+                            toggleSubNav(currentNavItem, subNav);
+                            break;
+                        case "Esc":
+                        case "Escape":
+                            //@ts-ignore
+                            closeSubNav(currentNavItem, subNav, backdrop);
+                            break;
+                        default:
+                            return;
+                    }
+                };
+                var scrollToTop = function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                };
+                var removeScrollable = function () {
+                    var appBody = document.querySelector('body');
+                    appBody.classList.remove('preventscroll');
+                };
+                var addScrollable = function () {
+                    var appBody = document.querySelector('body');
+                    appBody.classList.add('preventscroll');
+                };
+                var addBackdrop = function (backdrop) {
+                    scrollToTop();
+                    addScrollable();
+                    if (backdrop.classList.contains('hidden') || backdrop.hasAttribute('hidden')) {
+                        backdrop.classList.remove('hidden');
+                    }
+                };
+                var removeBackdrop = function (backdrop) {
+                    scrollToTop();
+                    removeScrollable();
+                    var button = document.querySelector('#nav-main-toggle');
+                    var buttonStyles = window.getComputedStyle(button);
+                    var nav = document.querySelector('.nav-wrapper');
+                    if (buttonStyles.getPropertyValue('display') == 'none') {
+                        backdrop.classList.add('hidden');
+                    }
+                    else if (buttonStyles.getPropertyValue('display') == 'block') {
+                        if (!backdrop.classList.contains('hidden') && nav.classList.contains('hidden')) {
+                            backdrop.classList.add('hidden');
+                        }
+                    }
+                    else {
+                        backdrop.classList.add('hidden');
+                    }
+                };
+                var closeMainNav = function (button) {
+                    button.setAttribute("aria-expanded", "false");
+                    _this.navWrapper.setAttribute("aria-hidden", "true");
+                    _this.navWrapper.classList.add("hidden");
+                    //@ts-ignore
+                    removeBackdrop(backdrop);
+                };
+                var openMainNav = function (button) {
+                    button.setAttribute("aria-expanded", "true");
+                    _this.navWrapper.setAttribute("aria-hidden", "false");
+                    _this.navWrapper.classList.remove("hidden");
+                    _this.navWrapper.classList.remove("noshow");
+                    //@ts-ignore
+                    addBackdrop(backdrop);
+                };
+                var toggleMainNav = function (button) {
+                    if (button.getAttribute("aria-expanded") === "true") {
+                        closeMainNav(button);
+                    }
+                    else {
+                        openMainNav(button);
+                    }
+                };
+                var closeSubNav = function (link, subNav, backdrop) {
+                    link.setAttribute("aria-expanded", "false");
+                    subNav.setAttribute("aria-hidden", "true");
+                    subNav.classList.add("hidden");
+                    removeBackdrop(backdrop);
+                };
+                var openSubNav = function (link, subNav, backdrop) {
+                    var mainNav = document.querySelector("#main-nav");
+                    addBackdrop(backdrop);
+                    link.setAttribute("aria-expanded", "true");
+                    subNav.setAttribute("aria-hidden", "false");
+                    subNav.classList.remove("hidden");
+                    backdrop.addEventListener("click", function () {
+                        closeSubNav(link, subNav, backdrop);
+                    });
+                };
+                var toggleSubNav = function (link, subNav) {
+                    //@ts-ignore
+                    var subNavs = document.querySelectorAll(".nav-main .subnav");
+                    // Now open the proper subnav
+                    if (subNav !== null) {
+                        if (link.getAttribute("aria-expanded") === "true") {
+                            //@ts-ignore
+                            closeSubNav(link, subNav, backdrop);
+                        }
+                        else {
+                            //@ts-ignore
+                            openSubNav(link, subNav, backdrop);
+                        }
+                    }
+                };
+                var setupSubNavItem = function (subNavItem) {
+                    var link = subNavItem.querySelector("a");
+                    var subNav = subNavItem.querySelector(".subnav");
+                    link.setAttribute("aria-expanded", "false");
+                    link.setAttribute("role", "button");
+                    subNav.removeAttribute("hidden");
+                    subNav.setAttribute("aria-hidden", "true");
+                    subNav.classList.add("hidden");
+                    window.addEventListener("hashchange", function () {
+                        var button = document.querySelector('#nav-main-toggle');
+                        var backdrop = document.querySelector("#backdrop");
+                        closeMainNav(button);
+                        closeSubNav(link, subNav, backdrop);
+                    });
+                };
+                var setupNavLink = function (navLink) {
+                    navLink.addEventListener("click", subNavClickEventHandler);
+                    navLink.parentNode.addEventListener("keydown", subNavKeydownHandler);
+                };
+                this.setupNavToggle = function (navToggle, navWrapper) {
+                    navToggle.setAttribute("aria-expanded", "false");
+                    navWrapper.classList.add("noshow");
+                    // navWrapper.setAttribute('tabindex', '-1');
+                    navToggle.addEventListener("click", navToggleClickEventHandler);
+                    navToggle.addEventListener("keydown", navToggleKeydownHandler);
+                };
+                // Do Main Magic...
+                this.header = document.querySelector(".a11y-nav");
+                this.header.classList.add("has-js-loaded");
+                this.mainNav = document.querySelector(".nav-main");
+                this.navWrapper = document.querySelector(".nav-wrapper");
+                //@ts-ignore
+                this.subNavItems = document.querySelectorAll(".has-subnav");
+                this.subNavItems.forEach(function (subNavItem) { return setupSubNavItem(subNavItem); });
+                //@ts-ignore
+                this.navLinks = document.querySelectorAll(".nav-main > ul > li > a");
+                this.navLinks.forEach(function (navLink) { return setupNavLink(navLink); });
+                this.navToggle = document.querySelector(".nav-toggle");
+                this.backdrop = document.querySelector("#backdrop");
+                this.setupNavToggle(this.navToggle, this.navWrapper, this.backdrop);
+            }
+        };
+        //@ts-ignore
+        AppHeader.nav();
+    })();
+}());
+</script>
+  <cc-app base-path="/containers/"></cc-app>
+  <style> .ecosystem-footer-wrap .footer-top{background-color:#0d0d0d}.ecosystem-footer-wrap .footer-top .container{width:100%;padding-left:48px;padding-right:48px}.ecosystem-footer-wrap .content-info{background:#333;margin-bottom:0!important}@media screen and (min-width:992px){.ecosystem-footer-wrap .content-info{padding:30px 2rem 0!important}}@media screen and (max-width:992px){.ecosystem-footer-wrap .content-info{-webkit-box-flex:1!important;-ms-flex:1!important;flex:1!important}}.ecosystem-footer-wrap .content-info *{padding:0 0 15px}.ecosystem-footer-wrap .content-info ul{min-height:225px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}@media screen and (min-width:768px){.ecosystem-footer-wrap .content-info ul{width:100%}.ecosystem-footer-wrap .pre-footer-callout .btn{float:right!important}}.ecosystem-footer-wrap .social{margin:auto 0 0;justify-self:flex-end}.ecosystem-footer-wrap .social-media{padding-bottom:0;margin:0}.ecosystem-footer-wrap .social-media a{padding:0 10px}.ecosystem-footer-wrap .social-media a:first-child{padding-left:0}.ecosystem-footer-wrap .footer-nav-links{display:-webkit-box;display:-ms-flexbox;display:flex}.ecosystem-footer-wrap .footer-nav-links h3{text-transform:none;font-weight:800}@media screen and (max-width:768px){.ecosystem-footer-wrap .content-info ul{max-width:75%}.ecosystem-footer-wrap .footer-nav-links{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.ecosystem-footer-wrap .brand{width:98px;height:23px;margin-bottom:15px;margin-top:15px}}.ecosystem-footer-wrap .footer-nav-info{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.ecosystem-footer-wrap .footer-nav-info--about-text{font-size:.875rem}@media screen and (min-width:768px) and (max-width:992px){.ecosystem-footer-wrap .brand{width:108px;height:26px;margin-bottom:15px;margin-top:15px}}@media screen and (min-width:992px){.ecosystem-footer-wrap .brand{width:118px;height:28px}}@media screen and (min-width:1200px){.ecosystem-footer-wrap .brand{width:118px;height:28px}}@supports (height:auto){.ecosystem-footer-wrap .brand .footer-top .rh-logo{height:auto!important}}.ecosystem-footer-wrap .partner-footer-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:0;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.ecosystem-footer-wrap .partner-footer-container [role=navigation]{padding:30px}@media screen and (min-width:992px){.ecosystem-footer-wrap .partner-footer-container [role=navigation]:first-child{padding:30px 0}}@media screen and (max-width:768px){.ecosystem-footer-wrap .partner-footer-container,.ecosystem-footer-wrap .partner-footer-container [role=navigation]{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}}@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none){.ecosystem-footer-wrap .partner-footer-container{display:block!important}}.ecosystem-footer-wrap .anchor .container{width:100%;padding-left:48px;padding-right:48px}.ecosystem-footer-wrap .flex-anchor{padding-right:0;display:-webkit-box;display:-ms-flexbox;display:flex}@media screen and (max-width:992px){.ecosystem-footer-wrap .flex-anchor{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}}.ecosystem-footer-wrap .status-legal{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}@media screen and (min-width:992px){.ecosystem-footer-wrap .flex-anchor{padding-left:0}.ecosystem-footer-wrap .status-legal{-webkit-box-align:center;-ms-flex-align:center;align-items:center}}@media screen and (max-width:768px){.ecosystem-footer-wrap .legal ul{-webkit-box-orient:vertical!important;-webkit-box-direction:normal!important;-ms-flex-direction:column!important;flex-direction:column!important}.ecosystem-footer-wrap .legal ul li{border-right:none!important}.ecosystem-footer-wrap .pre-footer-callout{text-align:center!important}}@media screen and (min-width:768px){.ecosystem-footer-wrap .pre-footer-callout .subheading{position:relative;top:7px}} </style>
+<footer class="footer-main ecosystem-footer-wrap">
+  <div class="footer-top">
+    <div class="container partner-footer-container">
+      <div class="footer-nav-links">
+        <div role="navigation">
+          <h3>Products &amp; Services</h3>
+          <ul>
+            <li>
+              <a class="manage-subscriptions"
+                href="https://catalog.redhat.com/hardware">Hardware</a>
+            </li>
+            <li>
+              <a class="download-software" href="https://catalog.redhat.com/software">Software</a>
+            </li>
+
+            <li>
+              <a class="support-cases" href="https://catalog.redhat.com/cloud">Cloud
+                & Service Providers</a>
+            </li>
+          </ul>
+        </div>
+        <!-- <div role="navigation">
+          <h3>Feedback</h3>
+          <ul>
+              <li><a class="contact-us" href="https://stage.foo.redhat.com:1337/support/contact/">Give a suggestion</a></li>
+              <li><a class="cp-faqs" href="https://stage.foo.redhat.com:1337/articles/33844">Report an issue</a></li>
+          </ul>
+      </div> -->
+        <div role="navigation">
+          <h3>Help</h3>
+          <ul>
+            <li><a class="browser-support-policy" href="https://access.redhat.com/support/contact/">Contact
+                Us</a></li>
+            <li><a class="trust-red-hat" href="https://access.redhat.com/support/customer-service">Customer
+                Support</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- <div class="footer-nav-info"> -->
+        <div role="navigation" class="content-info">
+          <h3>Red Hat Ecosystem Catalog</h3>
+          <div class="footer-nav-info">
+            <p class="footer-nav-info--about-text">The Red Hat Ecosystem Catalog is where you can find solutions built
+              by our partners that are certified to work with your Red Hat technologies.</p>
+            <div class="push-bottom"><a href="https://connect.redhat.com/about/program-overview" target="_blank" rel="noopener noreferrer">Partner with us <span
+                  class="web-icon-new-window"></span></a></div>
+            <div class="social">
+              <div class="social-media">
+                <a href="http://www.youtube.com/user/RedHatVideos" class="sm-icon linkedin"><i class="fa fa-youtube"
+                    aria-hidden="true"></i><span class="offscreen">LinkedIn</span></a>
+                <a href="http://www.linkedin.com/company/red-hat" class="sm-icon twitter"><i class="fa fa-linkedin"
+                    aria-hidden="true"></i><span class="offscreen">Twitter</span></a>
+                <a href="https://twitter.com/RedHatSupport" class="sm-icon twitter"><span
+                    class="nicon-twitter"></span><span class="offscreen">Twitter</span></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+
+    </div>
+  </div>
+
+  <div class="anchor">
+    <div class="container flex-anchor">
+      <div class="brand">
+        <a data-v-5574eac2="" href="/">
+          <svg data-v-5574eac2="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 613 145" class="rh-logo">
+            <defs data-v-5574eac2=""></defs>
+            <title data-v-5574eac2="">Red Hat</title>
+            <path data-v-5574eac2=""
+              d="M127.47,83.49c12.51,0,30.61-2.58,30.61-17.46a14,14,0,0,0-.31-3.42l-7.45-32.36c-1.72-7.12-3.23-10.35-15.73-16.6C124.89,8.69,103.76.5,97.51.5,91.69.5,90,8,83.06,8c-6.68,0-11.64-5.6-17.89-5.6-6,0-9.91,4.09-12.93,12.5,0,0-8.41,23.72-9.49,27.16A6.43,6.43,0,0,0,42.53,44c0,9.22,36.3,39.45,84.94,39.45M160,72.07c1.73,8.19,1.73,9.05,1.73,10.13,0,14-15.74,21.77-36.43,21.77C78.54,104,37.58,76.6,37.58,58.49a18.45,18.45,0,0,1,1.51-7.33C22.27,52,.5,55,.5,74.22c0,31.48,74.59,70.28,133.65,70.28,45.28,0,56.7-20.48,56.7-36.65,0-12.72-11-27.16-30.83-35.78"
+              class="rh-logo-hat" style="fill: rgb(238, 0, 0);"></path>
+            <path data-v-5574eac2=""
+              d="M160,72.07c1.73,8.19,1.73,9.05,1.73,10.13,0,14-15.74,21.77-36.43,21.77C78.54,104,37.58,76.6,37.58,58.49a18.45,18.45,0,0,1,1.51-7.33l3.66-9.06A6.43,6.43,0,0,0,42.53,44c0,9.22,36.3,39.45,84.94,39.45,12.51,0,30.61-2.58,30.61-17.46a14,14,0,0,0-.31-3.42Z"
+              class="rh-logo-band"></path>
+            <path data-v-5574eac2=""
+              d="M579.74,92.8c0,11.89,7.15,17.67,20.19,17.67a52.11,52.11,0,0,0,11.89-1.68V95a24.84,24.84,0,0,1-7.68,1.16c-5.37,0-7.36-1.68-7.36-6.73V68.3h15.56V54.1H596.78v-18l-17,3.68V54.1H568.49V68.3h11.25Zm-53,.32c0-3.68,3.69-5.47,9.26-5.47a43.12,43.12,0,0,1,10.1,1.26v7.15a21.51,21.51,0,0,1-10.63,2.63c-5.46,0-8.73-2.1-8.73-5.57m5.2,17.56c6,0,10.84-1.26,15.36-4.31v3.37h16.82V74.08c0-13.56-9.14-21-24.39-21-8.52,0-16.94,2-26,6.1l6.1,12.52c6.52-2.74,12-4.42,16.83-4.42,7,0,10.62,2.73,10.62,8.31v2.73a49.53,49.53,0,0,0-12.62-1.58c-14.31,0-22.93,6-22.93,16.73,0,9.78,7.78,17.24,20.19,17.24m-92.44-.94h18.09V80.92h30.29v28.82H506V36.12H487.93V64.41H457.64V36.12H439.55ZM370.62,81.87c0-8,6.31-14.1,14.62-14.1A17.22,17.22,0,0,1,397,72.09V91.54A16.36,16.36,0,0,1,385.24,96c-8.2,0-14.62-6.1-14.62-14.09m26.61,27.87h16.83V32.44l-17,3.68V57.05a28.3,28.3,0,0,0-14.2-3.68c-16.19,0-28.92,12.51-28.92,28.5a28.25,28.25,0,0,0,28.4,28.6,25.12,25.12,0,0,0,14.93-4.83ZM320,67c5.36,0,9.88,3.47,11.67,8.83H308.47C310.15,70.3,314.36,67,320,67M291.33,82c0,16.2,13.25,28.82,30.28,28.82,9.36,0,16.2-2.53,23.25-8.42l-11.26-10c-2.63,2.74-6.52,4.21-11.14,4.21a14.39,14.39,0,0,1-13.68-8.83h39.65V83.55c0-17.67-11.88-30.39-28.08-30.39a28.57,28.57,0,0,0-29,28.81M262,51.58c6,0,9.36,3.78,9.36,8.31S268,68.2,262,68.2H244.11V51.58Zm-36,58.16h18.09V82.92h13.77l13.89,26.82H292l-16.2-29.45a22.27,22.27,0,0,0,13.88-20.72c0-13.25-10.41-23.45-26-23.45H226Z"
+              class="rh-logo-type" style="fill: rgb(255, 255, 255);"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="status-legal">
+        <div class="legal-copyright">
+          <div role="navigation" class="legal">
+            <ul>
+              <li>
+                <div class="copyright">Copyright © 2019 Red Hat, Inc.</div>
+              </li>
+              <li><a href="http://www.redhat.com/en/about/privacy-policy" class="privacy-policy">Privacy
+                  Statement</a></li>
+              <li><a href="https://www.redhat.com/en/about/terms-use" class="terms-of-use">Terms of
+                  Use</a></li>
+              <li><a href="http://www.redhat.com/en/about/all-policies-guidelines" class="all-policies">All Policies and
+                  Guidelines</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
